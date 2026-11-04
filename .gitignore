@@ -1,0 +1,49 @@
+@'
+# Environment variables and API keys
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+.venv-*/
+venv/
+env/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Uploaded PDFs and private documents
+uploads/*
+!uploads/.gitkeep
+
+# Logs and temporary files
+*.log
+logs/
+*.tmp
+*.bak
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+'@ | Set-Content -Path .gitignore -Encoding utf8

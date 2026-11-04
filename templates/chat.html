@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearMind AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="brand">
+            <span>💡</span>
+            <h2>ClearMind AI</h2>
+        </div>
+
+        <button class="new-chat-btn" onclick="createNewChat()">
+            + New Chat
+        </button>
+
+        <div class="history-section">
+            <h3>CHAT HISTORY</h3>
+            <div id="chatHistory"></div>
+        </div>
+
+        <div class="sidebar-bottom">
+            <button onclick="toggleTheme()">☀ / ☾ Change Theme</button>
+
+            <div class="user-info">
+                <span>👤 {{ user.username }}</span>
+            </div>
+
+            <a href="{{ url_for('logout') }}" class="logout-btn">
+                ↪ Logout
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+            <h3>ClearMind AI Assistant</h3>
+            <span class="status">● Online</span>
+        </header>
+
+        <section class="chat-area" id="chatArea">
+
+            <div class="welcome-screen" id="welcomeScreen">
+                <div class="welcome-icon">💡</div>
+
+                <h1>Welcome to ClearMind AI</h1>
+
+                <p>Understand anything. Know what to do next.</p>
+
+                <div class="suggestions">
+                    <button onclick="useSuggestion('Explain artificial intelligence in simple words')">
+                        ✨ Explain a concept
+                    </button>
+
+                    <button onclick="useSuggestion('Help me prepare a study plan')">
+                        📚 Create a study plan
+                    </button>
+
+                    <button onclick="useSuggestion('Explain machine learning with examples')">
+                        🧠 Learn something new
+                    </button>
+                </div>
+            </div>
+
+            <div id="messages"></div>
+
+        </section>
+
+        <section class="input-section">
+
+            <div class="upload-info" id="uploadInfo"></div>
+
+            <div class="input-box">
+
+                <label for="pdfInput" class="upload-btn" title="Upload PDF">
+                    📎
+                </label>
+
+                <input
+                    type="file"
+                    id="pdfInput"
+                    accept=".pdf,application/pdf"
+                    multiple
+                    hidden
+                >
+
+                <textarea
+                    id="userInput"
+                    placeholder="Ask ClearMind anything..."
+                    rows="1"
+                ></textarea>
+
+                <button id="sendBtn" onclick="sendMessage()">
+                    ➤
+                </button>
+
+            </div>
+
+            <div class="settings-row">
+
+                <select id="level">
+                    <option value="Beginner">Beginner</option>
+                    <option value="Simple">Simple</option>
+                    <option value="Professional">Professional</option>
+                </select>
+
+                <select id="language">
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Marathi">Marathi</option>
+                </select>
+
+            </div>
+
+            <p class="disclaimer">
+                ClearMind AI can make mistakes. Verify important information.
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+
+</body>
+</html>
